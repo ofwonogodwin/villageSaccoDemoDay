@@ -9,11 +9,11 @@ export default function DashboardPage() {
       <div className="section-spacing">
         <div className="card bg-gradient-jade p-10 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl font-bold text-white mb-4">
+            <h1 className="text-5xl font-bold text-black mb-4">
               Welcome to Village SACCO
             </h1>
             <p className="text-xl text-jade-100 mb-8 max-w-2xl mx-auto">
-              Your comprehensive fintech platform powered by <span className="font-semibold text-white">Bitnob API</span>
+              Your comprehensive fintech platform powered by <span className="font-semibold text-black">Bitnob API</span>
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link href="/dashboard/cards" className="btn-primary">

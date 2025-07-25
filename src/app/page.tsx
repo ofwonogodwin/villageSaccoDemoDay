@@ -13,7 +13,7 @@ export default function Home() {
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="text-3xl font-bold bg-gradient-jade-primary bg-clip-text text-transparent">
+              <span className="text-3xl font-bold text-black">
                 Village SACCO
               </span>
             </Link>
@@ -54,7 +54,7 @@ export default function Home() {
               <div className="sm:text-center lg:text-left">
                 <h1 className="text-5xl tracking-tight font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
                   <span className="block xl:inline">Village</span>{' '}
-                  <span className="block bg-gradient-jade-primary bg-clip-text text-transparent xl:inline">SACCO</span>
+                  <span className="block text-black xl:inline">SACCO</span>
                 </h1>
                 <p className="mt-6 text-xl text-gray-600 sm:mt-8 sm:text-2xl sm:max-w-xl sm:mx-auto md:mt-8 md:text-xl lg:mx-0 leading-relaxed">
                   Your comprehensive fintech platform powered by <span className="text-jade-600 font-semibold">Bitnob API</span>.
@@ -182,7 +182,7 @@ export default function Home() {
             <span className="block">Access your dashboard today.</span>
           </h2>
           <p className="mt-4 text-lg leading-6 text-primary-100">
-            Join the future of finance with our comprehensive SACCO platform.
+            Join the future of finance with our comprehensive <span className="text-black">SACCO</span> platform.
           </p>
           <Link
             href="/dashboard"

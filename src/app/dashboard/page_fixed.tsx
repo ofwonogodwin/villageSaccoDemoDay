@@ -9,7 +9,7 @@ export default function DashboardPage() {
       <div className="mb-10">
         <div className="card bg-gradient-jade p-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-jade-800 mb-2">
+            <h1 className="text-4xl font-bold text-black mb-2">
               Welcome to Village SACCO
             </h1>
             <p className="text-xl text-jade-700 mb-6">
@@ -150,7 +150,7 @@ export default function DashboardPage() {
                 <div key={index} className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0">
                   <div className="flex items-center">
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${activity.type === 'send' ? 'bg-red-100' :
-                        activity.type === 'receive' ? 'bg-jade-100' : 'bg-blue-100'
+                      activity.type === 'receive' ? 'bg-jade-100' : 'bg-blue-100'
                       }`}>
                       <span className="text-lg">
                         {activity.type === 'send' && '💸'}
@@ -166,7 +166,7 @@ export default function DashboardPage() {
                   <div className="text-right">
                     <p className="text-sm font-semibold text-gray-900">{activity.amount}</p>
                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${activity.type === 'send' ? 'text-red-800 bg-red-100' :
-                        activity.type === 'receive' ? 'text-jade-800 bg-jade-100' : 'text-blue-800 bg-blue-100'
+                      activity.type === 'receive' ? 'text-jade-800 bg-jade-100' : 'text-blue-800 bg-blue-100'
                       }`}>
                       {activity.type === 'send' ? 'Sent' : activity.type === 'receive' ? 'Received' : 'Swapped'}
                     </span>

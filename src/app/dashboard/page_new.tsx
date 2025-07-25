@@ -12,7 +12,7 @@ export default function DashboardPage() {
       <div className="mb-10">
         <div className="card bg-gradient-jade p-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-jade-800 mb-2">
+            <h1 className="text-4xl font-bold text-black mb-2">
               Welcome to Village SACCO
             </h1>
             <p className="text-xl text-jade-700 mb-6">
