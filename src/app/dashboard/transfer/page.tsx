@@ -225,7 +225,7 @@ export default function TransferPage() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="recipient" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="recipient" className="form-label">
                 Recipient (Email, Phone or Bitcoin Address)
               </label>
               <div className="relative">
@@ -237,10 +237,10 @@ export default function TransferPage() {
                   onChange={handleRecipientChange}
                   required
                   className={`form-input pr-10 ${recipientValidation
-                      ? 'border-green-500 focus:border-green-500'
-                      : isValidating
-                        ? 'border-yellow-500 focus:border-yellow-500'
-                        : ''
+                    ? 'border-green-500 focus:border-green-500'
+                    : isValidating
+                      ? 'border-yellow-500 focus:border-yellow-500'
+                      : ''
                     }`}
                   placeholder="Enter email, phone or Bitcoin address"
                   disabled={isTransferring}
@@ -275,19 +275,19 @@ export default function TransferPage() {
                 </div>
               </div>
               {formData.recipient && (
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="helper-text">
                   Detected: {receiverType === 'email' ? 'Email Address' : receiverType === 'bitcoin' ? 'Bitcoin Address' : 'Phone Number'}
-                  {recipientValidation && <span className="text-green-600 ml-2">✓ Validated</span>}
+                  {recipientValidation && <span className="text-green-600 ml-2 font-medium">✓ Validated</span>}
                 </p>
               )}
             </div>
 
             <div>
-              <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="amount" className="form-label">
                 Amount
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 input-prefix">
                   {formData.currency === 'BTC' ? '₿' : '$'}
                 </span>
                 <input
@@ -486,8 +486,8 @@ export default function TransferPage() {
                   <div className="text-right">
                     <p className="font-semibold text-gray-900">{transfer.amount}</p>
                     <span className={`inline-flex px-2 py-1 text-xs rounded-full font-medium ${transfer.status === 'completed'
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-yellow-100 text-yellow-800'
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-yellow-100 text-yellow-800'
                       }`}>
                       {transfer.status}
                     </span>

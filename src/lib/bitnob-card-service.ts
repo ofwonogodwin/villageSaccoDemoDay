@@ -182,7 +182,7 @@ export class BitnobVirtualCardService {
   async createCard(payload: CreateCardPayload): Promise<any> {
     try {
       const response: AxiosResponse = await this.axiosInstance.post(
-        '/api/v1/virtual-cards/create',
+        '/api/v1/virtual-cards/users/create',
         payload
       );
       return response.data;

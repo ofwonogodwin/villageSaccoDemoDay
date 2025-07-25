@@ -65,7 +65,7 @@ Admin must approve the user to access card/transfer features
 ### 2. Create Virtual Card
 Registers a card user in Bitnob
 
-Creates a virtual card with POST /api/v1/virtual-cards/create
+Creates a virtual card with POST /api/v1/virtual-cards/users/create
 
 ### 3. Top-Up Card
 Funds the card using POST /api/v1/virtual-cards/topup

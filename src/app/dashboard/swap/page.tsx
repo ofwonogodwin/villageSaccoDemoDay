@@ -101,12 +101,23 @@ export default function SwapPage() {
   };
 
   return (
-    <div className="px-4 py-6">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Currency Swap</h1>
-        <p className="mt-2 text-gray-600">
-          Exchange between different currencies instantly with competitive rates
-        </p>
+    <div className="px-6 py-8 space-y-8">
+      {/* Header - Improved */}
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+        <div>
+          <h1 className="text-4xl font-bold gradient-text mb-3">Currency Swap</h1>
+          <p className="text-xl text-gray-600">Exchange between different currencies instantly with competitive rates</p>
+        </div>
+        <div className="flex items-center space-x-6">
+          <div className="text-right">
+            <p className="text-sm text-gray-500">Exchange Fee</p>
+            <p className="text-xl font-bold text-jade-600">0.5%</p>
+          </div>
+          <div className="text-right">
+            <p className="text-sm text-gray-500">Processing</p>
+            <p className="text-xl font-bold text-purple-600">Instant</p>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -124,7 +135,7 @@ export default function SwapPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* From Currency */}
             <div>
-              <label htmlFor="fromCurrency" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="fromCurrency" className="form-label">
                 From
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -143,7 +154,7 @@ export default function SwapPage() {
                   <option value="NGN">NGN</option>
                 </select>
                 <div className="relative col-span-2">
-                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 input-prefix">
                     {getCurrencySymbol(formData.fromCurrency)}
                   </span>
                   <input
@@ -179,7 +190,7 @@ export default function SwapPage() {
 
             {/* To Currency */}
             <div>
-              <label htmlFor="toCurrency" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="toCurrency" className="form-label">
                 To
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -198,7 +209,7 @@ export default function SwapPage() {
                   <option value="NGN">NGN</option>
                 </select>
                 <div className="relative col-span-2">
-                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 input-prefix">
                     {getCurrencySymbol(formData.toCurrency)}
                   </span>
                   <input

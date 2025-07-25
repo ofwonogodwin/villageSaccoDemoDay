@@ -118,7 +118,7 @@ class BitnobAPI {
         cardType: 'virtual',
       };
 
-      const response = await this.makeRequest('POST', '/api/v1/virtual-cards/create', payload);
+      const response = await this.makeRequest('POST', '/api/v1/virtual-cards/users/create', payload);
       return response.data;
     } catch (error) {
       console.error('Error creating virtual card:', error);
