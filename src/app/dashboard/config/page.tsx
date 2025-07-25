@@ -130,7 +130,7 @@ export default function BitnobConfigPage() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm font-medium text-gray-700">Secret Key</span>
                       <div className="flex items-center">
@@ -140,7 +140,7 @@ export default function BitnobConfigPage() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm font-medium text-gray-700">Lightning Key</span>
                       <div className="flex items-center">
@@ -150,7 +150,7 @@ export default function BitnobConfigPage() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm font-medium text-gray-700">HMAC Public Key</span>
                       <div className="flex items-center">
@@ -160,7 +160,7 @@ export default function BitnobConfigPage() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm font-medium text-gray-700">Webhook Secret</span>
                       <div className="flex items-center">
@@ -170,7 +170,7 @@ export default function BitnobConfigPage() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm font-medium text-gray-700">Client ID</span>
                       <div className="flex items-center">
@@ -193,12 +193,12 @@ export default function BitnobConfigPage() {
                       <span className="text-sm font-medium text-gray-700">Card Service</span>
                       {getStatusIcon(testResult.data.configuration.cardServiceInitialized)}
                     </div>
-                    
+
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm font-medium text-gray-700">Transfer Service</span>
                       {getStatusIcon(testResult.data.configuration.transferServiceInitialized)}
                     </div>
-                    
+
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="text-sm font-medium text-gray-700">Webhook Service</span>
                       {getStatusIcon(testResult.data.configuration.webhookServiceInitialized)}

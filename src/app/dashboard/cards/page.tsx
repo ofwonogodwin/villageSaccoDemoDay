@@ -245,8 +245,8 @@ export default function VirtualCards() {
         {/* Message Display */}
         {message && (
           <div className={`mb-6 p-4 rounded-xl ${messageType === 'success'
-              ? 'bg-jade-100 text-jade-800 border border-jade-200'
-              : 'bg-red-100 text-red-800 border border-red-200'
+            ? 'bg-jade-100 text-jade-800 border border-jade-200'
+            : 'bg-red-100 text-red-800 border border-red-200'
             }`}>
             <p className="font-medium">{message}</p>
             <button
@@ -483,8 +483,8 @@ export default function VirtualCards() {
                       </div>
                     </div>
                     <div className={`px-3 py-1 rounded-full text-xs font-medium ${(card.status || 'active') === 'active'
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-yellow-100 text-yellow-800'
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-yellow-100 text-yellow-800'
                       }`}>
                       {(card.status || 'ACTIVE').toUpperCase()}
                     </div>
@@ -498,8 +498,8 @@ export default function VirtualCards() {
                       onClick={() => handleManageCard(card.id, card.status === 'active' ? 'freeze' : 'unfreeze')}
                       disabled={loadingStates.managing[card.id]}
                       className={`px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 ${card.status === 'active'
-                          ? 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
-                          : 'bg-green-100 text-green-800 hover:bg-green-200'
+                        ? 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
+                        : 'bg-green-100 text-green-800 hover:bg-green-200'
                         }`}
                     >
                       {loadingStates.managing[card.id]

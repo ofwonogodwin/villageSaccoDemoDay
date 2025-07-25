@@ -9,7 +9,7 @@ export class BitnobWebhookService {
 
   constructor() {
     this.webhookSecret = process.env.BITNOB_WEBHOOK_SECRET || '';
-    
+
     if (!this.webhookSecret) {
       throw new Error('BITNOB_WEBHOOK_SECRET environment variable is required');
     }
@@ -26,10 +26,10 @@ export class BitnobWebhookService {
       const hmac = crypto.createHmac('sha256', this.webhookSecret);
       hmac.update(payload);
       const calculatedSignature = hmac.digest('hex');
-      
+
       // Remove 'sha256=' prefix if present
       const cleanSignature = signature.replace('sha256=', '');
-      
+
       // Use timing-safe comparison to prevent timing attacks
       return crypto.timingSafeEqual(
         Buffer.from(calculatedSignature, 'hex'),
@@ -49,42 +49,42 @@ export class BitnobWebhookService {
   async processWebhook(payload: any): Promise<void> {
     try {
       const { event, data } = payload;
-      
+
       console.log(`📡 Processing webhook event: ${event}`);
-      
+
       switch (event) {
         case 'card.created':
           await this.handleCardCreated(data);
           break;
-          
+
         case 'card.topup':
           await this.handleCardTopup(data);
           break;
-          
+
         case 'card.transaction':
           await this.handleCardTransaction(data);
           break;
-          
+
         case 'card.frozen':
           await this.handleCardFrozen(data);
           break;
-          
+
         case 'card.unfrozen':
           await this.handleCardUnfrozen(data);
           break;
-          
+
         case 'transfer.initiated':
           await this.handleTransferInitiated(data);
           break;
-          
+
         case 'transfer.completed':
           await this.handleTransferCompleted(data);
           break;
-          
+
         case 'transfer.failed':
           await this.handleTransferFailed(data);
           break;
-          
+
         default:
           console.log(`⚠️ Unhandled webhook event: ${event}`);
       }

@@ -5,8 +5,8 @@ export async function POST(request: NextRequest) {
   try {
     // Get the raw body for signature verification
     const rawBody = await request.text();
-    const signature = request.headers.get('x-bitnob-signature') || 
-                     request.headers.get('x-signature') || '';
+    const signature = request.headers.get('x-bitnob-signature') ||
+      request.headers.get('x-signature') || '';
 
     console.log('📡 Received webhook:', {
       hasSignature: !!signature,

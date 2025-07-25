@@ -26,12 +26,12 @@ export async function GET(request: NextRequest) {
       hasHmacPublicKey: !!process.env.BITNOB_HMAC_PUBLIC_KEY,
       hasWebhookSecret: !!process.env.BITNOB_WEBHOOK_SECRET,
       hasClientId: !!process.env.BITNOB_CLIENT_ID,
-      
+
       // Service initialization
       cardServiceInitialized: !!bitnobCardService,
       transferServiceInitialized: !!bitnobTransferService,
       webhookServiceInitialized: !!bitnobWebhookService,
-      
+
       // API configuration
       baseUrl: process.env.BITNOB_BASE_URL,
       environment: process.env.NODE_ENV
@@ -45,8 +45,8 @@ export async function GET(request: NextRequest) {
         timestamp: new Date().toISOString(),
         configuration: configCheck,
         status: {
-          ready: configCheck.hasBaseUrl && configCheck.hasSecretKey && 
-                 configCheck.cardServiceInitialized && configCheck.transferServiceInitialized,
+          ready: configCheck.hasBaseUrl && configCheck.hasSecretKey &&
+            configCheck.cardServiceInitialized && configCheck.transferServiceInitialized,
           missingCredentials: [
             !configCheck.hasBaseUrl && 'BITNOB_BASE_URL',
             !configCheck.hasSecretKey && 'BITNOB_SECRET_KEY',
