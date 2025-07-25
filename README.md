@@ -1,114 +1,125 @@
-# Village SACCO - Fintech App
+## 💳 Village SACCO – USDT Virtual Card & Global Transfer Platform
 
-A comprehensive fintech SACCO application built with Next.js 15, TypeScript, and Bitnob API integration. This app provides virtual card creation, Bitcoin savings, money transfers, and currency swap functionality.
+### Built for the Bitnob & Tether Hackathon 2025
 
-## 🚀 Features
+> A full-stack USDT financial inclusion platform built for rural SACCOs (Savings & Credit Cooperative Organizations) to empower users with **virtual cards**, **Bitcoin savings**, and **cross-border transfers**, all powered by **Bitnob APIs**.
 
-- **Virtual Dollar Cards**: Create virtual cards instantly for secure online transactions
-- **Bitcoin Savings**: Automated recurring Bitcoin purchases with dollar-cost averaging
-- **Instant Transfers**: Send money to email addresses or Bitcoin wallets
-- **Currency Swap**: Exchange between USD, BTC, EUR, GBP, and NGN
-- **Modern UI**: Beautiful jade green theme with responsive design
-- **Secure API**: HMAC-SHA512 signed requests to Bitnob sandbox APIs
+---
 
-## 🛠️ Technology Stack
+## Tech Stack
 
-- **Frontend**: Next.js 15, TypeScript, TailwindCSS v4
-- **Backend**: Next.js API routes
-- **Database**: PostgreSQL with Prisma ORM
-- **API Integration**: Bitnob sandbox APIs
-- **Authentication**: JWT-based (NextAuth.js ready)
-- **Styling**: Custom jade green theme (#00BB77)
+- **Next.js 15** (React 19) – Frontend & API Routes
+- **TailwindCSS** – Styling
+- **TypeScript** – Type Safety
+- **Prisma + PostgreSQL** – Database ORM
+- **Bitnob Sandbox API** – USDT Virtual Cards, Transfers, Bitcoin Savings
+- **Vercel** – Deployment
 
-## 📦 Installation
+---
 
-1. Clone the repository
-2. Install dependencies:
-```bash
+##  Features
+
+✅ User Registration + Login (with approval logic)  
+✅ Create & Manage Virtual USDT Cards  
+✅ Top-up Cards & View Transactions  
+✅ Freeze/Unfreeze & Terminate Cards  
+✅ Global USDT Transfers  
+✅ View Card User & Card Details  
+✅ Admin Approval Flow  
+✅ Modular API Integration via Bitnob
+
+---
+
+## 🧪 Demo & Live URL
+
+⚠️ Use the sandbox credentials below to test APIs.
+
+---
+
+## 🔐 Environment Setup
+
+Create a `.env.local` file and configure:
+
+env
+DATABASE_URL=your_postgres_url
+BITNOB_CLIENT_ID=your_bitnob_client_id
+BITNOB_SECRET_KEY=your_bitnob_secret
+BITNOB_BASE_URL=https://sandboxapi.bitnob.co
+Installation & Development
+bash
+Copy
+Edit
+git clone https://github.com/your-username/village-sacco.git
+cd village-sacco
 npm install
-```
-
-3. Set up environment variables:
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your Bitnob sandbox credentials:
-```env
-BITNOB_CLIENT_ID=your_sandbox_client_id
-BITNOB_SECRET_KEY=your_sandbox_secret_key
-BITNOB_BASE_URL=https://sandboxapi.bitnob.co/api/v1
-DATABASE_URL=postgresql://user:password@localhost:5432/villagesacco
-JWT_SECRET=your_super_secret_jwt
-NEXTAUTH_SECRET=your_nextauth_secret
-NEXTAUTH_URL=http://localhost:3000
-```
-
-4. Set up the database:
-```bash
 npx prisma generate
-npx prisma db push
-```
-
-5. Run the development server:
-```bash
+npx prisma migrate dev --name init
 npm run dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) to see the application.
+# User Workflow
+### 1. Register as a new user
+Fill in name, email, password
 
-## 🏗️ Project Structure
+Admin must approve the user to access card/transfer features
 
-```
-src/
-├── app/
-│   ├── api/bitnob/          # API routes for Bitnob integration
-│   ├── dashboard/           # Dashboard pages
-│   ├── globals.css          # Global styles with jade theme
-│   └── page.tsx            # Landing page
-├── lib/
-│   ├── bitnob.ts           # Bitnob API client
-│   └── prisma.ts           # Prisma client configuration
-└── generated/
-    └── prisma/             # Generated Prisma client
-```
+### 2. Create Virtual Card
+Registers a card user in Bitnob
 
-## 🔑 API Routes
+Creates a virtual card with POST /api/v1/virtual-cards/create
 
-- `POST /api/bitnob/create-card` - Create virtual cards
-- `POST /api/bitnob/savings-plan` - Create Bitcoin savings plans
-- `POST /api/bitnob/send-money` - Send money transfers
-- `POST /api/bitnob/swap-currency` - Currency exchange
+### 3. Top-Up Card
+Funds the card using POST /api/v1/virtual-cards/topup
 
-## 🎨 Styling
+### 4. View Card Transactions
+Uses GET /api/v1/virtual-cards/cards/{cardId}/transactions
 
-The app uses a custom jade green theme (#00BB77) with TailwindCSS v4. Custom utility classes include:
-- `.btn-primary` - Primary button styling
-- `.card` - Card component styling
-- `.form-input` - Form input styling
+### 5. Transfer USDT Globally
+Initiate with POST /api/v1/transfers
 
-## 🔐 Security
+Confirm with POST /api/v1/transfers/finalize
 
-- All API requests are signed with HMAC-SHA512
-- Input validation on both client and server
-- Sandbox-only environment for safe testing
-- No sensitive data in client-side code
+# API Routes (App-Powered)
+🔐 Auth
+POST /api/auth/register → Create account
 
-## 🧪 Testing
+POST /api/auth/login → Authenticate
 
-This app is configured for Bitnob sandbox testing only. All API calls are made to the sandbox environment for safe development and testing.
+GET /api/auth/status → Session check
 
-## 🚀 Deployment
+# 💳 Virtual Cards
+POST /api/bitnob/register-card-user
 
-Ready for deployment to Vercel, Netlify, or any Node.js hosting platform. Remember to:
-- Set production environment variables
-- Update API endpoints for production use
-- Configure production database
+POST /api/bitnob/create-card
 
-## 📝 License
+POST /api/bitnob/topup-card
 
-This project is for educational purposes as part of the Bitnob bootcamp.
+GET /api/bitnob/card-details
 
-## 🤝 Contributing
+POST /api/bitnob/freeze-card
 
-Feel free to submit issues and pull requests to improve the application.
+POST /api/bitnob/unfreeze-card
+
+POST /api/bitnob/terminate-card
+
+#  Transfers
+POST /api/bitnob/initiate-transfer
+
+POST /api/bitnob/finalize-transfer
+
+# Judge Credentials (Testing)
+You may use the following test sandbox users to simulate:
+
+Email: judge@example.com
+
+Password: SecurePass123
+
+Admin approval is required, and can be done via direct DB or request to team.
+
+# 🛠 Dev Notes
+Code is modular with clear error handling (see pages/api/bitnob/*.ts)
+
+Secure storage of secrets via .env.local
+
+All Bitnob interactions are routed through a single helper class
+
+Prisma schema can be found in /prisma/schema.prisma
