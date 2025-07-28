@@ -1,4 +1,4 @@
-## 💳 Village SACCO – USDT Virtual Card & Global Transfer Platform
+## 💳 Village SACCO – USDT Virtual Card & Global Transfer Platform.
 
 ### Built for the Bitnob & Tether Hackathon 2025
 
